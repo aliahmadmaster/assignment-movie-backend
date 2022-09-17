@@ -1,4 +1,5 @@
-import { IsEmail, IsInt, IsNotEmpty, IsString } from 'class-validator';
+import { Type } from 'class-transformer';
+import { IsDate, IsInt, IsNotEmpty, IsString, Max, Min } from 'class-validator';
 
 export class CreateMovieDTO {
   
@@ -10,23 +11,27 @@ export class CreateMovieDTO {
   @IsNotEmpty()
   description: string;
 
-  @IsInt()
+  @IsDate()
+  @Type(() => Date)
   @IsNotEmpty()
-  releaseDate: number;
+  releaseDate: Date;
 
   @IsInt()
   @IsNotEmpty()
+  @Min(1)
+  @Max(5)
   rating: number;
 
   @IsInt()
   @IsNotEmpty()
+  @Min(1)
   ticketPrice: number;
 
   @IsString()
   @IsNotEmpty()
   country: string;
 
-  @IsString()
+  @IsString({ each: true })
   @IsNotEmpty()
   genre: string[];
 
