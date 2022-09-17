@@ -15,7 +15,7 @@ export class MovieService {
     return this.toModel(movie);
   }
   
-  private toModel(movieDocument: Movie): MovieModel {
+  private toModel(movieDocument: Movie) : MovieModel {
     return {
       id: movieDocument._id.toHexString(),
       name: movieDocument.name,
@@ -25,8 +25,7 @@ export class MovieService {
       ticketPrice: movieDocument.ticketPrice,
       country: movieDocument.country,
       genre: movieDocument.genre,
-      photo: movieDocument.photo
-
+      photo: movieDocument.photo,
     };
   }
   

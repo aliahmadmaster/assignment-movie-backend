@@ -10,7 +10,7 @@ export class Movie extends AbstractDocument {
     description: string;
 
     @Prop()
-    releaseDate: number;
+    releaseDate: Date;
   
     @Prop()
     rating: number;
