@@ -5,6 +5,6 @@ export class GetUser {
     
     @IsString()
     @IsNotEmpty()
-    id: string;
+    _id: string;
   }
   

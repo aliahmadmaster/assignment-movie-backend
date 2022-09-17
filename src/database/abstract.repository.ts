@@ -57,4 +57,8 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
   async find(filterQuery: FilterQuery<TDocument>) {
     return this.model.find(filterQuery, {}, { lean: true });
   }
+  async findPagination(filterQuery: FilterQuery<TDocument>, page: number, count: number) {
+    page = (page -1) *count; 
+    return this.model.find(filterQuery, {}, { lean: true }).skip(page).limit(count);
+  }
 }

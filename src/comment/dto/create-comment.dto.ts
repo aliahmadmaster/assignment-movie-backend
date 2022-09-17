@@ -1,6 +1,6 @@
 import { IsEmpty, IsNotEmpty, IsString, MaxLength, MinLength } from 'class-validator';
 
-export class CreateUserDTO {
+export class CreateCommentDTO {
   @IsNotEmpty()
   @IsString()
   @MinLength(3, {
@@ -11,9 +11,8 @@ export class CreateUserDTO {
   })
   body: string;
 
-  @IsString()
   @IsEmpty()
-  userId: string;
+  userId?: string;
 
   @IsString()
   @IsNotEmpty()

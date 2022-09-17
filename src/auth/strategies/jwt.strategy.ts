@@ -13,14 +13,12 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     private readonly userService: UserService,
   ) {
     super({
-      jwtFromRequest: ExtractJwt.fromExtractors([
-        (request: Request) => request?.cookies?.Authentication,
-      ]),
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       secretOrKey: configService.get('JWT_SECRET'),
     });
   }
 
   async validate({ userId }: TokenPayload) {
-    return this.userService.getUser({ id: userId });
+    return this.userService.getUser({ _id: userId });
   }
 }

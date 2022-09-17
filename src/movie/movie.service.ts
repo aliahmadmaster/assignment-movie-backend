@@ -14,6 +14,11 @@ export class MovieService {
     });
     return this.toModel(movie);
   }
+  async getMovies(page: number, count: number){
+    
+    const movies = await this.movieRepository.findPagination({},page, count)
+    return movies.map((movie) => this.toModel(movie));
+  }
   
   private toModel(movieDocument: Movie) : MovieModel {
     return {

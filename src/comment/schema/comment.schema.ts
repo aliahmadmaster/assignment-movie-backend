@@ -10,10 +10,10 @@ export class Comment extends AbstractDocument {
   body: string;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  userId?: User;
+  userId?: string;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Movie' })
-  movieId: Movie;
+  movieId: string;
 }
 
 export const CommentSchema = SchemaFactory.createForClass(Comment);

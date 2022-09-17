@@ -6,8 +6,8 @@ import { Comment } from "./schema/comment.schema";
 
 
 @Injectable()
-export class UserRepository extends AbstractRepository<Comment> {
-  protected readonly logger = new Logger(UserRepository.name);
+export class CommentRepository extends AbstractRepository<Comment> {
+  protected readonly logger = new Logger(CommentRepository.name);
 
   constructor(@InjectModel(Comment.name) commetModel: Model<Comment>) {
     super(commetModel);
